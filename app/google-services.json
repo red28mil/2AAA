@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1096030419651",
+    "project_id": "traveldiary-fa1b5",
+    "storage_bucket": "traveldiary-fa1b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096030419651:android:27ba90295ca0e04c670076",
+        "android_client_info": {
+          "package_name": "org.wit.traveldiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096030419651-6hqaq39748a96ta5aj2uqgsglo3jo4dp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.wit.traveldiary",
+            "certificate_hash": "841cccc82e7f4fbd7d414482a963be23975e9500"
+          }
+        },
+        {
+          "client_id": "1096030419651-dgj3k7gaq09fttjvrjb0adgl2prjhk4r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAiSJ5r7wBi2aq67z0TISxoZqYiBrZPvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096030419651-dgj3k7gaq09fttjvrjb0adgl2prjhk4r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
