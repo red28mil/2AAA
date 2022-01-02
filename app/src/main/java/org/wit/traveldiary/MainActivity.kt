@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -37,6 +39,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val database = Firebase.database
+        val myRef = database.getReference("message")
+        myRef.setValue("lot")
+
+        val button5 = findViewById<Button>(R.id.button5)
+        // set on-click listener
+        button5.setOnClickListener {
+            Intent(this, MapsActivity::class.java).also {
+                startActivity(it)
+            }
+        }
         val button4 = findViewById<Button>(R.id.button4)
         // set on-click listener
         button4.setOnClickListener {
