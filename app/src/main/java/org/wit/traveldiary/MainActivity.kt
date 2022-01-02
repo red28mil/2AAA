@@ -19,11 +19,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-const val  REQUEST_CODE_SIGN_IN  = 0
+//const val  REQUEST_CODE_SIGN_IN  = 0
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var auth: FirebaseAuth
+    // lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,11 +32,14 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.button)
         // set on-click listener
         button.setOnClickListener {
-            Intent(this, LoginActivity::class.java).also{
+            Intent(this, LoginActivity::class.java).also {
                 startActivity(it)
             }
         }
+    }
+}
 
+/*
        auth = FirebaseAuth.getInstance()
         //for google
         val googleSignInButton = findViewById<Button>(R.id.googleSignInButton)
@@ -81,4 +84,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-
+*/
