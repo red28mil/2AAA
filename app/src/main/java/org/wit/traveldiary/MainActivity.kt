@@ -10,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -19,13 +20,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
+
 
 const val  REQUEST_CODE_SIGN_IN  = 0
 
@@ -39,6 +37,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val button4 = findViewById<Button>(R.id.button4)
+        // set on-click listener
+        button4.setOnClickListener {
+            Intent(this, HomeActivity::class.java).also {
+                startActivity(it)
+            }
+        }
         val button = findViewById<Button>(R.id.button)
         // set on-click listener
         button.setOnClickListener {
@@ -48,19 +53,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         //for google
-        //val googleSignInButton = findViewById<Button>(R.id.googleSignInButton)
         // set on-click listener
-        //googleSignInButton.setOnClickListener
+        googleSignInButton.setOnClickListener {
+
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.client_id))
                 .requestEmail()
                 .build()
             val googleSignInClient = GoogleSignIn.getClient(this, gso)
-            // val signInClient = GoogleSignIn.getClient(this, options)
-            // googleSignInClient.signInIntent.also {
-            //     startActivityForResult(it, REQUEST_CODE_SIGN_IN)
-
-            //  }
+            googleSignInClient.signInIntent.also {
+                   startActivityForResult(it, REQUEST_CODE_SIGN_IN)
+            }
+        }
             auth = FirebaseAuth.getInstance()
 
     }
@@ -89,20 +93,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
     }
-
-    //    private fun googleAuthForFirebase(account: GoogleSignInAccount) {
-    //        val credentials = GoogleAuthProvider.getCredential(account.idToken, null)
-    //       CoroutineScope(Dispatchers.IO).launch {
-    //            try {
-    //                mAuth.signInWithCredential(credentials).await()
-    //                Toast.makeText(this@MainActivity, "success", Toast.LENGTH_LONG).show()
-    //            } catch (e: Exception) {
-    //               withContext(Dispatchers.Main) {
-    //                   Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_LONG).show()
-    //                }
-    //           }
-    //       }
-    //   }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -134,6 +124,12 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val TAG = "GoogleActivity"
         private const val RC_SIGN_IN = 9001
+    }
+
+    private fun signOut() {
+        // [START auth_sign_out]
+        Firebase.auth.signOut()
+        // [END auth_sign_out]
     }
 }
 

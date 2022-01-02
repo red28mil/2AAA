@@ -98,15 +98,11 @@
         app:layout_constraintVertical_bias="0.848"
         tools:layout_editor_absoluteX="146dp" />
 
+
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="186dp"
+        app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

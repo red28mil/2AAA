@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Travel Diary</string>
     <string name="client_id">1096030419651-6hqaq39748a96ta5aj2uqgsglo3jo4dp.apps.googleusercontent.com</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
