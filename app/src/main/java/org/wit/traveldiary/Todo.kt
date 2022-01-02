@@ -2,7 +2,7 @@ package org.wit.traveldiary
 
 
 
-data class Diary(
+data class Todo(
     val title: String,
-    var isChecked: Boolean
+    var isChecked: Boolean = false
 )
