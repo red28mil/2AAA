@@ -37,6 +37,14 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
+        val etSignout = findViewById<Button>(R.id.etSignout)
+        // set on-click listener
+        etSignout.setOnClickListener {
+            Intent(this, LogoutActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+
     }
 }
 
