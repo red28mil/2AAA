@@ -37,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
         user = FirebaseAuth.getInstance()
         binding.btnLogin.setOnClickListener{
             registerUser()
+            signinUser()
         }
         binding.buttonHome.setOnClickListener{
             Intent(this, HomeActivity::class.java).also {
@@ -71,8 +72,30 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "blah", Toast.LENGTH_LONG).show()
         }
     }
+private fun signinUser()
+    {
+        val email = binding.etEmail.text.toString()
+        val password = binding.etPassword.text.toString()
+
+        if(email.isNotEmpty() && password.isNotEmpty()){
 
 
+        user.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+
+                    Toast.makeText(this, "success signed IN", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    finish()
+                } else {
+                    Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+                } else {
+                Toast.makeText(this, "NOT signed in", Toast.LENGTH_LONG).show()
+                }
+            }
 
 
 }
