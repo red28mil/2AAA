@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelDiary" >
         <activity
-            android:name=".MainActivity2"
+            android:name=".DrawerActivity"
             android:exported="true"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.TravelDiary.NoActionBar" />

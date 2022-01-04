@@ -21,10 +21,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
@@ -36,17 +33,19 @@ const val  REQUEST_CODE_SIGN_IN  = 0
 class MainActivity : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
-
+    private lateinit var dbref : DatabaseReference
     private lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        // Write a message to the database
         val database = Firebase.database
-        val myRef = database.getReference("message")
-        myRef.setValue("lot")
-        myRef.addValueEventListener(object: ValueEventListener {
+        val dbref = database.getReference("message")
+
+        dbref.setValue("Hello, World!")
+        // Read from the database
+        dbref.addValueEventListener(object: ValueEventListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 // This method is called once with the initial value and again

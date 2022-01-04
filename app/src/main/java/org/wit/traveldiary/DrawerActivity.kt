@@ -12,7 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import org.wit.traveldiary.databinding.ActivityMain2Binding
 
-class MainActivity2 : AppCompatActivity() {
+class DrawerActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 private lateinit var binding: ActivityMain2Binding
